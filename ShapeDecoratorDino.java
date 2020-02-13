@@ -1,12 +1,25 @@
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-public class ShapeDecoratorCrosshair implements Shape {
+import javax.imageio.ImageIO;
+
+public class ShapeDecoratorDino implements Shape {
 
 	private Shape decoratee;
 
-	public ShapeDecoratorCrosshair(Shape decoratee) {
+	private BufferedImage image;
+
+	public ShapeDecoratorDino(Shape decoratee) {
 		this.decoratee = decoratee;
+
+		try {
+			image = ImageIO.read(new File("images\\dino.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -14,22 +27,13 @@ public class ShapeDecoratorCrosshair implements Shape {
 		decoratee.draw(g);
 		Point position = decoratee.getPosition();
 
-		int x1 = (int) (position.getX() - (decoratee.getWidth() / 2) + 0.5);
-		int y1 = (int) (position.getY() + 0.5);
+		int x = (int) (position.getX() + 0.5);
+		int y = (int) (position.getY() + 0.5);
 
-		int x2 = (int) (position.getX() + (decoratee.getWidth() / 2) + 0.5);
-		int y2 = (int) (position.getY() + 0.5);
+		Image tmp = image.getScaledInstance((int) decoratee.getWidth(), (int) decoratee.getHeight(),
+				Image.SCALE_SMOOTH);
 
-		int x3 = (int) (position.getX() + 0.5);
-		int y3 = (int) (position.getY() - (decoratee.getHeight() / 2) + 0.5);
-
-		int x4 = (int) (position.getX() + 0.5);
-		int y4 = (int) (position.getY() + (decoratee.getHeight() / 2) + 0.5);
-
-		g.setColor(Color.GREEN);
-		g.drawLine(x1, y1, x2, y2);
-		g.drawLine(x3, y3, x4, y4);
-		g.setColor(Color.BLACK);
+		g.drawImage(tmp, x, y, null);
 
 	}
 

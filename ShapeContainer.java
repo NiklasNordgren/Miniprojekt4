@@ -10,7 +10,7 @@ public class ShapeContainer extends JPanel implements Pointable {
 	private List<Shape> shapes = new LinkedList<Shape>();
 
 	public enum Mode {
-		INSERT, MOVE, DELETE, MARK, MARK2, UNMARK, RESIZE
+		INSERT, MOVE, DELETE, MARK, MARK2, MARK3, UNMARK, RESIZE
 	};
 
 	private Mode mode = Mode.INSERT;
@@ -81,6 +81,14 @@ public class ShapeContainer extends JPanel implements Pointable {
 			select(point);
 			if (selected != null) {
 				Shape markedShape = new ShapeDecoratorCrosshair(selected);
+				shapes.remove(selected);
+				shapes.add(markedShape);
+				repaint();
+			}
+		} else if (mode == Mode.MARK3) {
+			select(point);
+			if (selected != null) {
+				Shape markedShape = new ShapeDecoratorDino(selected);
 				shapes.remove(selected);
 				shapes.add(markedShape);
 				repaint();
