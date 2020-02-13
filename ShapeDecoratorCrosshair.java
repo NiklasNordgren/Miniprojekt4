@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class ShapeDecoratorCrosshair implements Shape {
@@ -13,10 +14,22 @@ public class ShapeDecoratorCrosshair implements Shape {
 		decoratee.draw(g);
 		Point position = decoratee.getPosition();
 
-		int x1 = (int) (position.getX() + 0.5);
+		int x1 = (int) (position.getX() - (decoratee.getWidth() / 2) + 0.5);
 		int y1 = (int) (position.getY() + 0.5);
 
-		g.drawLine(x1, y1, x1 + 50, y1 + 50);
+		int x2 = (int) (position.getX() + (decoratee.getWidth() / 2) + 0.5);
+		int y2 = (int) (position.getY() + 0.5);
+
+		int x3 = (int) (position.getX() + 0.5);
+		int y3 = (int) (position.getY() - (decoratee.getHeight() / 2) + 0.5);
+
+		int x4 = (int) (position.getX() + 0.5);
+		int y4 = (int) (position.getY() + (decoratee.getHeight() / 2) + 0.5);
+
+		g.setColor(Color.GREEN);
+		g.drawLine(x1, y1, x2, y2);
+		g.drawLine(x3, y3, x4, y4);
+		g.setColor(Color.BLACK);
 
 		/*
 		 * int x = (int) (position.getX() - decoratee.getWidth() / 2.0 + 0.5); int y =
