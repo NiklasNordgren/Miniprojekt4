@@ -13,6 +13,11 @@ public class ShapeDecoratorCrosshair implements Shape {
 		decoratee.draw(g);
 		Point position = decoratee.getPosition();
 
+		int x1 = (int) (position.getX() + 0.5);
+		int y1 = (int) (position.getY() + 0.5);
+
+		g.drawLine(x1, y1, x1 + 50, y1 + 50);
+
 		/*
 		 * int x = (int) (position.getX() - decoratee.getWidth() / 2.0 + 0.5); int y =
 		 * (int) (position.getY() - decoratee.getHeight() / 2.0 + 0.5); g.fillOval(x, y,

@@ -23,6 +23,7 @@ public class ShapeApp extends JFrame {
 		createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
 		createMenuItem(menu, "Delete", e -> shapeContainer.setMode(ShapeContainer.Mode.DELETE));
 		createMenuItem(menu, "Mark", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK));
+		createMenuItem(menu, "Mark 2", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK2));
 		createMenuItem(menu, "Unmark", e -> shapeContainer.setMode(ShapeContainer.Mode.UNMARK));
 		createMenuItem(menu, "Resize", e -> shapeContainer.setMode(ShapeContainer.Mode.RESIZE));
 		JMenuBar menuBar = new JMenuBar();
