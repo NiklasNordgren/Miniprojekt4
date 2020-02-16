@@ -4,22 +4,17 @@ public class Rectangle implements Shape {
 
 	private Point center;
 	private double width, height;
-	private java.awt.Rectangle rect;
 
 	public Rectangle(Point point, double width, double height) {
-
 		center = point;
 		this.width = width;
 		this.height = height;
-
-		rect = new java.awt.Rectangle();
-		rect.setBounds((int) (center.getX() - width / 2 + 0.5), (int) (center.getY() - height / 2 + 0.5), (int) width,
-				(int) height);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawRect((int) rect.getX(), (int) rect.getY(), (int) rect.getWidth(), (int) rect.getHeight());
+		g.drawRect((int) (center.getX() - width / 2 + 0.5), (int) (center.getY() - height / 2 + 0.5),
+				(int) this.getWidth(), (int) this.getHeight());
 	}
 
 	@Override
@@ -39,6 +34,9 @@ public class Rectangle implements Shape {
 
 	@Override
 	public boolean intersects(Point point) {
+		java.awt.Rectangle rect = new java.awt.Rectangle();
+		rect.setBounds((int) (center.getX() - width / 2 + 0.5), (int) (center.getY() - height / 2 + 0.5), (int) width,
+				(int) height);
 		return rect.contains(point.getX(), point.getY());
 	}
 
