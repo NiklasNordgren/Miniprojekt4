@@ -19,7 +19,7 @@ public class ShapeApp extends JFrame {
 
 	public void createMenue() {
 		JMenu menu = new JMenu("Modes");
-		createMenuItem(menu, "Insert", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
+		createMenuItem(menu, "Insert", e -> shapeContainer.setState(new StateInsert()));
 		createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
 		createMenuItem(menu, "Delete", e -> shapeContainer.setMode(ShapeContainer.Mode.DELETE));
 		createMenuItem(menu, "Mark", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK));
@@ -28,6 +28,7 @@ public class ShapeApp extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(menu);
 		this.setJMenuBar(menuBar);
+		System.out.println("state app: " + State.getState());
 	}
 
 	private void createMenuItem(JMenu menu, String label, ActionListener listener) {
