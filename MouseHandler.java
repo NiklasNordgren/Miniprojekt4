@@ -3,28 +3,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class MouseHandler implements MouseListener, MouseMotionListener {
-	private Pointable pointable = new Pointable() { //?? fkn questionable
+	private Pointable pointable;
 
-		@Override
-		public void pointerUp(Point point) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void pointerMoved(Point point, boolean pointerDown) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void pointerDown(Point point) {
-			// TODO Auto-generated method stub
-
-		}
-	};
-
-	public MouseHandler() { // tog in pointable innan
+	public MouseHandler(Pointable pointable) { // tog in pointable innan
 		
 		this.pointable = pointable;
 	}

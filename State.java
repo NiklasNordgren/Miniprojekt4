@@ -4,7 +4,8 @@ public abstract class State {
 	private static State currentState;
 
 	public void handleCoinInserted(StateClient stateMachine) {	}
-	public void pointerDown() {	};
+	public void pointerDown(Point point, ShapeContainer moder) {	}
+	public void pointerMoved(Point point, ShapeContainer shapeContainer, boolean pointerDown) {	}
 
 //	public static void reset(StateClient client) {
 //		setState(new StateA(client));	}
@@ -14,7 +15,6 @@ public abstract class State {
 	}
 
 	public static State getState() {
-		System.out.println("get state");
 		return currentState;
 	}
 }

@@ -1,20 +1,23 @@
+public class StateDelete extends State {
 
-public class StateDelete extends State{
-	
-	private ShapeContainer moder;
-	
-	
-	public StateDelete(ShapeContainer moder) {
-		this.moder = moder;
+	private static StateDelete instance = null;
+
+	private StateDelete() {
+
 	}
-	
-	public void pointerDown(Point point ) {
+
+	public void pointerDown(Point point, ShapeContainer moder) {
 		moder.select(point);
 		if (moder.selected != null)
 			moder.getShapes().remove(moder.selected);
 		moder.selected = null;
-		moder.repaint(); // uppmanar swing att måla om
-		System.out.println("in state yao");
+		moder.repaint(); 
 	}
-	
+
+	public static StateDelete getInstance() {
+
+		if (instance == null)
+			instance = new StateDelete();
+		return instance;
+	}
 }
