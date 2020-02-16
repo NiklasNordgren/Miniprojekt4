@@ -3,6 +3,7 @@ public abstract class State {
 
 	private static State currentState;
 
+	public void handleCoinInserted(StateClient stateMachine) {	}
 	public void pointerDown() {	};
 
 //	public static void reset(StateClient client) {
