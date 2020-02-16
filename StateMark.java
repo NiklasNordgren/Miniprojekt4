@@ -5,13 +5,13 @@ public class StateMark extends State{
 	private StateMark() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
-		moder.select(point);
-		if (moder.selected != null) {
-			Shape markedShape = new ShapeDecorator(moder.selected);
-			moder.getShapes().remove(moder.selected);
-			moder.getShapes().add(markedShape);
-			moder.repaint();
+	public void pointerDown(Point point, ShapeContainer mother) {
+		mother.select(point);
+		if (mother.selected != null) {
+			Shape markedShape = new ShapeDecorator(mother.selected);
+			mother.getShapes().remove(mother.selected);
+			mother.getShapes().add(markedShape);
+			mother.repaint();
 		}
 	}
 

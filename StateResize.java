@@ -7,15 +7,15 @@ public class StateResize extends State {
 	private StateResize() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
-		moder.select(point);
+	public void pointerDown(Point point, ShapeContainer mother) {
+		mother.select(point);
 	}
 
-	public void pointerMoved(Point point, ShapeContainer moder, boolean pointerDown) {
+	public void pointerMoved(Point point, ShapeContainer mother, boolean pointerDown) {
 		
-		if (moder.selected != null && pointerDown) {
-			moder.selected.resizeTo(point);
-			moder.repaint();
+		if (mother.selected != null && pointerDown) {
+			mother.selected.resizeTo(point);
+			mother.repaint();
 		}
 	}
 

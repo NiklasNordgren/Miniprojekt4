@@ -7,10 +7,10 @@ public class StateInsertCirle extends State {
 	private StateInsertCirle() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
+	public void pointerDown(Point point, ShapeContainer mother) {
 
-		moder.getShapes().add(new Circle(point, Math.random() * 50.0));
-		moder.repaint();
+		mother.getShapes().add(new Circle(point, Math.random() * 50.0));
+		mother.repaint();
 	}
 
 	public static StateInsertCirle getInstance() {

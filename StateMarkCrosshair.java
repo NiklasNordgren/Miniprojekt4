@@ -7,13 +7,13 @@ public class StateMarkCrosshair extends State{
 	private StateMarkCrosshair() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
-		moder.select(point);
-		if (moder.selected != null) {
-			Shape markedShape = new ShapeDecoratorCrosshair(moder.selected);
-			moder.getShapes().remove(moder.selected);
-			moder.getShapes().add(markedShape);
-			moder.repaint();
+	public void pointerDown(Point point, ShapeContainer mother) {
+		mother.select(point);
+		if (mother.selected != null) {
+			Shape markedShape = new ShapeDecoratorCrosshair(mother.selected);
+			mother.getShapes().remove(mother.selected);
+			mother.getShapes().add(markedShape);
+			mother.repaint();
 		}
 	}
 

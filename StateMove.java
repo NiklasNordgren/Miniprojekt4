@@ -7,15 +7,15 @@ public class StateMove extends State {
 	private StateMove() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
-		moder.select(point);
+	public void pointerDown(Point point, ShapeContainer mother) {
+		mother.select(point);
 	}
 
-	public void pointerMoved(Point point, ShapeContainer moder, boolean pointerDown) {
+	public void pointerMoved(Point point, ShapeContainer mother, boolean pointerDown) {
 		
-		if (moder.selected != null && pointerDown) {
-				moder.selected.moveTo(point);
-				moder.repaint();
+		if (mother.selected != null && pointerDown) {
+				mother.selected.moveTo(point);
+				mother.repaint();
 		}
 		
 	}

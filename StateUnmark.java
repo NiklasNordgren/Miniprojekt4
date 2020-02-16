@@ -7,15 +7,14 @@ public class StateUnmark extends State {
 	private StateUnmark() {
 	}
 
-	public void pointerDown(Point point, ShapeContainer moder) {
-		moder.select(point);
-		if (moder.selected != null) {
-			Shape unmarkedShape = moder.selected.peel();
-			moder.getShapes().remove(moder.selected);
-			moder.getShapes().add(unmarkedShape);
-			moder.repaint();
+	public void pointerDown(Point point, ShapeContainer mother) {
+		mother.select(point);
+		if (mother.selected != null) {
+			Shape unmarkedShape = mother.selected.peel();
+			mother.getShapes().remove(mother.selected);
+			mother.getShapes().add(unmarkedShape);
+			mother.repaint();
 		}
-
 	}
 
 	public static StateUnmark getInstance() {
