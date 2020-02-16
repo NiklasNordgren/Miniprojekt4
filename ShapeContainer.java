@@ -2,13 +2,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.LinkedList;
 import java.util.List;
-
 import javax.swing.JPanel;
+
 
 public class ShapeContainer extends JPanel implements Pointable { // ska ej implementa pointable
 	private static final long serialVersionUID = 1L;
 	private List<Shape> shapes = new LinkedList<Shape>();
 	public Shape selected;
+
+	public enum Mode {
+		INSERT, INSERT2, MOVE, DELETE, MARK, MARK2, MARK3, UNMARK, RESIZE
+	};
+
+	private Mode mode = Mode.INSERT;
+
 
 	public ShapeContainer() {
 		super();
@@ -16,6 +23,7 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 		this.addMouseListener(mouseHandler);
 		this.addMouseMotionListener(mouseHandler);
 		this.setBackground(Color.white);
+
 		setState(StateInsert.getInstance());
 	}
 
@@ -23,7 +31,7 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 		getShapes().add(shape);
 	}
 
-	public void paintComponent(Graphics g) // anropas av Swing när det är dags att rendera
+	public void paintComponent(Graphics g) // anropas av Swing nÃ¤r det Ã¤r dags att rendera
 	{
 		super.paintComponent(g);
 		for (Shape shape : getShapes())
@@ -32,7 +40,7 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 	}
 
 	public void select(Point point) {
-		for (Shape shape : getShapes()) {
+		for (Shape shape : shapes) {
 			if (shape.intersects(point)) {
 				selected = shape;
 				return;
@@ -42,6 +50,28 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 
 	public void pointerDown(Point point) { 
 		State.getState().pointerDown(point, this);
+
+	 if (mode == Mode.MARK2) {
+			select(point);
+			if (selected != null) {
+				Shape markedShape = new ShapeDecoratorCrosshair(selected);
+				shapes.remove(selected);
+				shapes.add(markedShape);
+				repaint();
+			}
+		} else if (mode == Mode.MARK3) {
+			select(point);
+			if (selected != null) {
+				Shape markedShape = new ShapeDecoratorDino(selected);
+				shapes.remove(selected);
+				shapes.add(markedShape);
+				repaint();
+			}
+		} else if (mode == Mode.INSERT2) {
+			shapes.add(new Rectangle(point, Math.random() * 100.0, Math.random() * 100.0));
+			repaint();
+		}
+
 	}
 
 	public void pointerUp(Point point) {
@@ -58,5 +88,9 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 
 	public List<Shape> getShapes() {
 		return shapes;
+
+	}
+	public void setMode(Mode mode) {
+		
 	}
 }
