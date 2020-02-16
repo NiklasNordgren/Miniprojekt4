@@ -31,7 +31,7 @@ public class ShapeApp extends JFrame {
 	public void createMenue() {
 		JMenu menu = new JMenu("Modes");
 
-		createMenuItem(menu, "Insert", e -> shapeContainer.setState(StateInsert.getInstance()));
+		createMenuItem(menu, "Insert Circle", e -> shapeContainer.setState(StateInsertCirle.getInstance()));
 		createMenuItem(menu, "Move", e -> shapeContainer.setState(StateMove.getInstance()));
 		createMenuItem(menu, "Delete", e -> shapeContainer.setState(StateDelete.getInstance()));
 		createMenuItem(menu, "Mark", e -> shapeContainer.setState(StateMark.getInstance()));

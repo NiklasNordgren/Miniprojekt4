@@ -24,7 +24,7 @@ public class ShapeContainer extends JPanel implements Pointable { // ska ej impl
 		this.addMouseMotionListener(mouseHandler);
 		this.setBackground(Color.white);
 
-		setState(StateInsert.getInstance());
+		setState(StateInsertCirle.getInstance());
 	}
 
 	public void addShape(Shape shape) {
