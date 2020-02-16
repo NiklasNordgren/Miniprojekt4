@@ -16,7 +16,7 @@ public class ShapeDecoratorDino implements Shape {
 		this.decoratee = decoratee;
 
 		try {
-			image = ImageIO.read(new File("images\\dino3.png"));
+			image = ImageIO.read(new File("images\\dino1.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

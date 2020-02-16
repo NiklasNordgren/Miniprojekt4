@@ -1,3 +1,5 @@
+
+
 public class StateResize extends State {
 
 	private static StateResize instance = null;

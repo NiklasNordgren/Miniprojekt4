@@ -1,25 +1,28 @@
-public class StateMark extends State{
 
-	private static StateMark instance = null;
 
-	private StateMark() {
+public class StateMarkDinosaur extends State{
+
+	private static StateMarkDinosaur instance = null;
+
+	private StateMarkDinosaur() {
 	}
 
 	public void pointerDown(Point point, ShapeContainer moder) {
 		moder.select(point);
 		if (moder.selected != null) {
-			Shape markedShape = new ShapeDecorator(moder.selected);
+			Shape markedShape = new ShapeDecoratorDino(moder.selected);
 			moder.getShapes().remove(moder.selected);
 			moder.getShapes().add(markedShape);
 			moder.repaint();
 		}
 	}
 
-	public static StateMark getInstance() {
+	public static StateMarkDinosaur getInstance() {
 
 		if (instance == null)
-			instance = new StateMark();
+			instance = new StateMarkDinosaur();
 		return instance;
 
 	}
+
 }

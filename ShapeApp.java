@@ -32,19 +32,14 @@ public class ShapeApp extends JFrame {
 		JMenu menu = new JMenu("Modes");
 
 		createMenuItem(menu, "Insert Circle", e -> shapeContainer.setState(StateInsertCirle.getInstance()));
-		createMenuItem(menu, "Move", e -> shapeContainer.setState(StateMove.getInstance()));
-		createMenuItem(menu, "Delete", e -> shapeContainer.setState(StateDelete.getInstance()));
-		createMenuItem(menu, "Mark", e -> shapeContainer.setState(StateMark.getInstance()));
+		createMenuItem(menu, "Insert Rectangle", e -> shapeContainer.setState(StateInsertRectangle.getInstance()));
+		createMenuItem(menu, "Mark Fill", e -> shapeContainer.setState(StateMark.getInstance()));
+		createMenuItem(menu, "Mark Dinosaur", e -> shapeContainer.setState(StateMarkDinosaur.getInstance()));
+		createMenuItem(menu, "Mark Crosshair", e -> shapeContainer.setState(StateMarkCrosshair.getInstance()));
 		createMenuItem(menu, "Unmark", e -> shapeContainer.setState(StateUnmark.getInstance()));
 		createMenuItem(menu, "Resize", e -> shapeContainer.setState(StateResize.getInstance()));
-
-		createMenuItem(menu, "Insert Circle", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
-		createMenuItem(menu, "Insert Rectangle", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT2));
-		createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
-		createMenuItem(menu, "Delete", e -> shapeContainer.setMode(ShapeContainer.Mode.DELETE));
-		createMenuItem(menu, "Mark Fill", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK));
-		createMenuItem(menu, "Mark Crosshair", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK2));
-		createMenuItem(menu, "Mark Dinosaur", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK3));
+		createMenuItem(menu, "Move", e -> shapeContainer.setState(StateMove.getInstance()));
+		createMenuItem(menu, "Delete", e -> shapeContainer.setState(StateDelete.getInstance()));
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(menu);

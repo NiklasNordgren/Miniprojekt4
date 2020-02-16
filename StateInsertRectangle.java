@@ -1,4 +1,5 @@
 
+
 public class StateInsertRectangle extends State {
 
 	private static StateInsertRectangle instance = null;

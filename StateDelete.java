@@ -1,3 +1,5 @@
+
+
 public class StateDelete extends State {
 
 	private static StateDelete instance = null;

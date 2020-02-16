@@ -1,4 +1,5 @@
 
+
 public class StateInsertCirle extends State {
 
 	private static StateInsertCirle instance = null;
