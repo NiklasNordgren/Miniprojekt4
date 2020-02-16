@@ -27,8 +27,8 @@ public class ShapeDecoratorDino implements Shape {
 		decoratee.draw(g);
 		Point position = decoratee.getPosition();
 
-		int x = (int) (position.getX() + 0.5);
-		int y = (int) (position.getY() + 0.5);
+		int x = (int) (position.getX() - decoratee.getWidth() / 2 + 0.5);
+		int y = (int) (position.getY() - decoratee.getHeight() / 2 + 0.5);
 
 		Image tmp = image.getScaledInstance((int) decoratee.getWidth(), (int) decoratee.getHeight(),
 				Image.SCALE_SMOOTH);
