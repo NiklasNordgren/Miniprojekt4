@@ -20,6 +20,7 @@ public class ShapeApp extends JFrame {
 	public void createMenue() {
 		JMenu menu = new JMenu("Modes");
 		createMenuItem(menu, "Insert", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT));
+		createMenuItem(menu, "Insert 2", e -> shapeContainer.setMode(ShapeContainer.Mode.INSERT2));
 		createMenuItem(menu, "Move", e -> shapeContainer.setMode(ShapeContainer.Mode.MOVE));
 		createMenuItem(menu, "Delete", e -> shapeContainer.setMode(ShapeContainer.Mode.DELETE));
 		createMenuItem(menu, "Mark", e -> shapeContainer.setMode(ShapeContainer.Mode.MARK));
